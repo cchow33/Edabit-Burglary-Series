@@ -1,0 +1,23 @@
+// Given an object of the stolen items and a limit, return the difference between the total value of those items and the limit of the policy.
+
+// SOLUTION 1:
+function calculateDifference(obj, limit) {
+  let price = Object.values(obj) 
+  return Math.abs(limit - price.reduce((a,b) => a + b
+))}
+
+// SOLUTION 2:
+function calculateDifference(obj, limit){ 
+  return Object.values(obj).reduce((a,b) => a + b, 0) - limit
+}
+
+// SOLUTION 3:
+const calculateDifference = (obj, limit) => 
+  Object.values(obj).reduce((a,b) => a + b) - limit
+
+
+console.log(calculateDifference({ "baseball bat": 20 }, 5)) // 15
+console.log(calculateDifference({ skate: 10, painting: 20 }, 19)) // 11
+console.log(calculateDifference({ skate: 200, painting: 200, shoes: 1 }, 400)) // 1
+
+
