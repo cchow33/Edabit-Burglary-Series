@@ -1,0 +1,39 @@
+// You just returned home to find your mansion has been robbed! Given an object of the stolen items, return the total amount of the burglary (number). If nothing was robbed, return the string "Lucky you!".
+
+
+// SOLUTION 1
+function calculateLosses(obj) {
+
+  if (Object.values(obj).length === 0) return 'Lucky you!';
+  return Object.values(obj).reduce((a,b) => a+b);
+
+}
+
+
+// SOLUTION 2
+function calculateLosses(obj) {
+
+  return Object.values(obj).length === 0 ? 'Lucky you!' :
+  Object.values(obj).reduce((a,b) => a+b)
+
+}
+
+// SOLUTION 3
+const calculateLosses = obj => 
+  Object.values(obj).length === 0 ? 'Lucky you!' :
+  Object.values(obj).reduce((a,b) => a+b)
+
+
+
+
+console.log(calculateLosses({
+  tv: 30,
+  skate: 20,
+  stereo: 50,
+})) // 100
+
+console.log(calculateLosses({
+  painting: 20000,
+})) // 20000
+
+console.log(calculateLosses({})) // "Lucky you!"
