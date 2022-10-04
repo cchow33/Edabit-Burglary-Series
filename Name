@@ -1,0 +1,10 @@
+function sayWhat(obj) {
+
+  return Object.values(obj).join(' ') + ' ' + obj['2'];
+
+}
+
+
+console.log(sayWhat({ 1: "Mommy", 2: "please", 3: "help" })) // "Mommy please help please"
+console.log(sayWhat({ 1: "Me", 2: "innocent", 3: "is" })) // 
+"Me innocent is innocent"
