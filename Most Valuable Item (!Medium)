@@ -1,0 +1,33 @@
+// You call your spouse to inform his/her most precious item is gone! Given an object of stolen items, return the most expensive item on the list.
+
+// SOLUTION 1:
+function mostExpensiveItem(obj) {
+  const arr = Object.values(obj);
+  const max = Math.max(...arr);
+  const index = arr.indexOf(max);
+  const item = Object.keys(obj);
+  return item[index]
+}
+
+// SOLUTION 2:
+const mostExpensiveItem = obj => {
+	const sort = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+	return sort[0][0];
+}
+
+
+
+console.log(mostExpensiveItem({
+  piano: 2000,
+})) // "piano"
+
+console.log(mostExpensiveItem({
+  tv: 30,
+  skate: 20,
+})) // "tv"
+
+console.log(mostExpensiveItem({
+  tv: 30,
+  skate: 10,
+  stereo: 90,
+})) // "stereo"
