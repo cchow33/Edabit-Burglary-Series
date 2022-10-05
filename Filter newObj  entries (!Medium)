@@ -1,0 +1,28 @@
+// The insurance guy calls, the policy you chose doesn't cover values below 5000€, it wouldn't dignify your status you said at the time. Given an object with a list of the stolen items, return a copy of that list without the values below 5000
+
+// SOLUTION 1:
+function filterValues(obj) {
+  let newObj = {};
+  for (let key in obj){ 
+    if (obj[key] >= 5000){
+      newObj[key] = obj[key]
+    }
+  }
+  return newObj;
+}
+
+// SOLUTION 2: 
+function filterValues(obj) { 
+  return Object.fromEntries(Object.entries(obj).filter(item => item[1] >= 5000));
+}
+
+// SOLUTION 3:
+const filterValues = obj =>
+  Object.fromEntries(Object.entries(obj).filter(item => item[1] >= 5000))
+
+
+
+console.log(filterValues({ tv: 4999, guitar:5000, fork: 5001 })) // { guitar:5000, fork: 5001 }
+console.log(filterValues({ tv: 4999 })) // {}
+console.log(filterValues({ guitar: 5000 })) // { guitar: 5000 }
+console.log(filterValues({})) // {}
