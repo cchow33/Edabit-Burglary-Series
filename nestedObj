@@ -1,0 +1,28 @@
+// You are given two arguments, one object with nested objects and a string that corresponds to your name. The object already contains several signature properties, one on the root, the others on each nested object. Return an object with all containing signature values set to your name.
+
+
+function signAll(obj, name) {
+
+  for (let key in obj){
+    obj[key]['signature'] = name; // becomes "Rocky"
+    obj['signature'] = name; // becomes "Rocky"
+  }
+  return obj;
+}
+
+
+// TEST
+const obj = {
+  kitchen: {
+    painting: 100,
+    piano: 1000,
+    signature: "",
+  },
+  bathroom: {
+    stereo: 220,
+    signature: "",
+  },
+  signature: "",
+};
+
+console.log(signAll(obj, "Rocky")) 
