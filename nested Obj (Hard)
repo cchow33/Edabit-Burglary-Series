@@ -1,5 +1,6 @@
 // Given an object with three rounds, with nested objects as your scores per round, return a string of who cursed the most: If you, return "ME!" If your spouse, return "SPOUSE!", If a draw, return "DRAW!"
 
+// SOLUTION 1:
 function determineWhoCursedTheMost(obj) {
 
   let me = 0;
@@ -16,15 +17,17 @@ function determineWhoCursedTheMost(obj) {
  
   }
   
-  if (me > spouse){
-    return 'ME!'
-  } else if (me < spouse){
-    return 'SPOUSE!'
-  } else if (me === spouse){
-    return 'DRAW!'
-  }
-  
+  return me === spouse ? 'DRAW!' : me < spouse ? 'SPOUSE!' : 'ME!'
 }
+
+// SOLUTION 2:
+determineWhoCursedTheMost = o => {
+ 
+ let s = Object.values(o).reduce((a, n) => a + (n.me - n.spouse),0)
+ return s > 0 ? "ME!" : s < 0 ? "SPOUSE!" : "DRAW!"
+
+}
+
 
 console.log(determineWhoCursedTheMost({
   round1: {
