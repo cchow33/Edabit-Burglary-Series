@@ -28,6 +28,17 @@ determineWhoCursedTheMost = o => {
 
 }
 
+// SOLUTION 3:
+function determineWhoCursedTheMost(obj) {
+	let meCount = 0, spCount = 0;
+  for (let p in obj) {
+		 meCount += obj[p].me;
+		 spCount += obj[p].spouse;
+	}
+	return meCount > spCount? 'ME!' :
+	spCount > meCount? 'SPOUSE!' :
+	'DRAW!'
+}
 
 console.log(determineWhoCursedTheMost({
   round1: {
