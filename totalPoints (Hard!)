@@ -1,0 +1,25 @@
+// Given an object with three rounds, with nested objects as your points per round, determine the winner by counting who won the most rounds. Return "ME!", "SPOUSE!" or "NOBODY!"
+
+function determineWinnerOfFight(obj) {
+	let meCount = 0;
+  let spouseCount = 0;
+
+  for (let x in obj){
+    meCount += obj[x]['me'];
+    spouseCount += obj[x]['spouse'];
+  }
+
+  return meCount === spouseCount ? "NOBODY!" : meCount > spouseCount ? "ME!" : "SPOUSE!"
+}
+
+console.log(determineWinnerOfFight({
+  round1: { me: 10, spouse: 5, },
+  round2: { me: 5, spouse: 20,},
+  round3: { me: 10, spouse: 10,},
+})) // "SPOUSE!"
+
+console.log(determineWinnerOfFight({
+  round1: { me: 40, spouse: 5,},
+  round2: { me: 9, spouse: 10,},
+  round3: { me: 9, spouse: 10,},
+})) // "ME!"
